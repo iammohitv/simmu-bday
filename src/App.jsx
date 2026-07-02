@@ -323,14 +323,10 @@ export default function App() {
         <div style="background:white;border-radius:20px;padding:28px 24px;box-shadow:0 8px 32px rgba(176,92,122,0.12);border:1px solid rgba(176,92,122,0.18);margin-bottom:24px;">
           <div style="font-size:1.5rem;margin-bottom:14px;">✍️</div>
           <p style="font-family:'Dancing Script',cursive;font-size:clamp(1.2rem,3.8vw,1.5rem);color:#B05C7A;line-height:2.2;font-style:italic;">
-            Pass nahi ho firr bhi<br>
-            Tumse pyaar karte hai,<br><br>
-            Dekhkar tasveer tumhari<br>
-            Tumhi ko yaad karte hai,<br><br>
-            Dil mein itni tadap<br>
-            Hai ki harr waqt,<br><br>
-            Tere se milne ki hi<br>
-            Fariyaad karte hai
+            Pass nahi ho firr bhi  Tumse pyaar karte hai,<br>
+            Dekhkar tasveer tumhari Tumhi ko yaad karte hai,<br>
+            Dil mein itni tadap Hai ki harr waqt,<br>
+            Tere se milne ki hi Fariyaad karte hai
           </p>
           <p style="font-family:'Great Vibes',cursive;font-size:1.3rem;color:#8c6878;margin-top:16px;">— Sirf tera, Mohit 💕</p>
         </div>
@@ -438,7 +434,6 @@ export default function App() {
           <div className="fav-card tiramisu-card" data-animate>
             <div className="fav-icon">🍰</div>
             <h3>Tiramisu</h3>
-            <p>Layers of coffee, cream, and pure magic — basically you in dessert form. Rich, sophisticated, and absolutely impossible to have just one bite of. No wonder it's your favourite.</p>
             <a className="fav-want-btn" href="https://mail.google.com/mail/?view=cm&to=mohit.vaswani.work@gmail.com&su=I+want+tiramisu!&body=I+want+tiramisu!" target="_blank" rel="noreferrer">
               I want tiramisu!
             </a>
@@ -468,7 +463,7 @@ export default function App() {
                 onClick={() => setLightbox(photo)}
                 style={{ transitionDelay: `${i * 0.055}s` }}
               >
-                <img src={photo.src} alt={`Memory ${i + 1}`} loading="lazy" />
+                <img src={`${import.meta.env.BASE_URL}${photo.src.replace(/^\//, '')}`} alt={`Memory ${i + 1}`} loading="lazy" />
                 <div className="polaroid-label">{photo.caption || ''}</div>
               </div>
             ))}
@@ -604,7 +599,7 @@ export default function App() {
         <div className="lightbox" onClick={() => setLightbox(null)}>
           <div className="lightbox-inner" onClick={(e) => e.stopPropagation()}>
             <button className="lightbox-close" onClick={() => setLightbox(null)}>✕</button>
-            <img src={lightbox.src} alt={lightbox.caption || 'Photo'} />
+            <img src={`${import.meta.env.BASE_URL}${lightbox.src.replace(/^\//, '')}`} alt={lightbox.caption || 'Photo'} />
             {lightbox.caption && <p className="lightbox-caption">{lightbox.caption}</p>}
           </div>
         </div>
